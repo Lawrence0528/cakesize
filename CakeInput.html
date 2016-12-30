@@ -1,0 +1,35 @@
+<md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+<md-card-title>
+          <md-card-title-text>{{title}}</md-card-title-text>
+</md-card-title>
+<md-card-content layout="row" layout-align="space-between">
+<md-tabs ng-init="currentModel=0" md-selected="currentModel" flex md-border-bottom md-autoselect>
+      <md-tab label="圓形烤模">
+        <md-content class="md-padding">
+            <md-content md-theme="docs-dark" layout="column" layout-padding>
+                <div flex layout="row">
+                    <md-input-container flex>
+                        <label>請輸入直徑(公分）</label>
+                        <input ng-model="round.diameter" type="number" ng-change="calcRound()">
+                    </md-input-container>
+
+                    <md-input-container flex>
+                        <label>請輸入高度(公分）</label>
+                        <input ng-model="round.height" type="number" ng-change="calcRound()">
+                    </md-input-container>
+                </div>
+                <div>
+                    <span ng-if="round.diameter">面積：{{round.area}}平方公分</span>
+                    <span ng-if="round.height">容積：{{round.volume}}立方公分</span>
+                </div>
+            </md-content>
+        </md-content>
+      </md-tab>
+      <md-tab label="方形烤模">
+        <md-content class="md-padding">
+            方形烤模
+        </md-content>
+      </md-tab>
+</md-tabs>
+</md-card-content>
+</md-card>
