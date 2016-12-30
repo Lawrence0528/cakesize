@@ -6,7 +6,7 @@ var formatFloat = function(num, pos) {
 
 var cakeSizeApp = angular.module("cakeSizeApp",["ngMaterial"]);
 
-cakeSizeApp.directive('sizeInput', [function() {
+cakeSizeApp.directive('sizeInput', ['$sce',function($sce) {
 	return {
 		scope : {
 			title : '=',
@@ -29,7 +29,7 @@ cakeSizeApp.directive('sizeInput', [function() {
 			}
         },
 		link : function(scope, element, attrs, ctrl) {
-			
+			$sce.trustAsHtml("CakeInput.html");
 		}
 	}
 
